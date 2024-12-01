@@ -1,13 +1,153 @@
-body {
+/* Reset CSS */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* General */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* Header / Navbar */
+nav {
+  background: #0d6efd;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+nav li:hover {
+  text-decoration: underline;
+}
+
+nav div span {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+nav div span:hover {
+  transform: scale(1.2);
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.card button {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.card button:hover {
+  background: #0b5ed7;
+}
+
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.detail-container img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.detail-container h2 {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.detail-container p {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+}
+
+.detail-container button {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+.detail-container button:hover {
+  background: #0b5ed7;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

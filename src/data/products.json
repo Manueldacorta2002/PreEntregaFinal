@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Procesador Ryzen 5 5600X",
+      "price": 180,
+      "description": "Procesador de 6 núcleos y 12 hilos con 4.6 GHz de velocidad.",
+      "image": "https://via.placeholder.com/150",
+      "category": "procesadores"
+    },
+    {
+      "id": 2,
+      "name": "Tarjeta Gráfica AMD RX 6750 XT",
+      "price": 420,
+      "description": "Tarjeta gráfica de 12GB ideal para gaming y renderizado.",
+      "image": "https://via.placeholder.com/150",
+      "category": "placas-de-video"
+    },
+    {
+      "id": 3,
+      "name": "Memoria RAM Corsair Vengeance 16GB",
+      "price": 90,
+      "description": "Memoria RAM DDR4 de 16GB con 3200MHz de velocidad.",
+      "image": "https://via.placeholder.com/150",
+      "category": "memorias-ram"
+    }
+  ]
+  
