@@ -1,20 +1,12 @@
-import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React from 'react';
 
-const Checkout = () => {
-  const { cart } = useContext(CartContext);
-
+const CheckoutPage = () => {
   return (
     <div>
-      <h2>Resumen de Compra</h2>
-      {cart.map((item, index) => (
-        <div key={index}>
-          <p>{item.name} x {item.quantity}</p>
-          <p>Total: ${item.price * item.quantity}</p>
-        </div>
-      ))}
+      <h2>Finalizar compra</h2>
+      <p>Procesando tu compra...</p>
     </div>
   );
 };
 
-export default Checkout;
+export default CheckoutPage;

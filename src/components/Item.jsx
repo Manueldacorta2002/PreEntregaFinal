@@ -1,20 +1,26 @@
-import React from "react";
-import { useSpring, animated } from "@react-spring/web";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { db, collection, addDoc } from "../firebase"; 
 
-const Item = ({ id, name, price, description, image }) => {
-  const props = useSpring({
-    from: { opacity: 0, transform: "translateY(20px)" },
-    to: { opacity: 1, transform: "translateY(0)" },
-  });
+const Item = ({ product }) => {
+  const { addItem } = useContext(CartContext);
+
+  const addProductToFirebase = async () => {
+    try {
+      await addDoc(collection(db, "products"), product);
+      alert("Producto agregado a Firebase");
+    } catch (error) {
+      console.error("Error al agregar el producto: ", error);
+    }
+  };
 
   return (
-    <animated.div style={props} className="card">
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <p>${price}</p>
-      <button>Ver Detalle</button>
-    </animated.div>
+    <div>
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <button onClick={() => addItem(product, 1)}>Agregar al carrito</button>
+      <button onClick={addProductToFirebase}>Agregar a Firebase</button>
+    </div>
   );
 };
 

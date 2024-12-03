@@ -1,16 +1,19 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li>Procesadores</li>
-        <li>Placas de Video</li>
-        <li>Memorias RAM</li>
+        <li>
+          <Link to="/">Inicio</Link>
+        </li>
+        <li>
+          <Link to="/cart">Carrito</Link>
+        </li>
       </ul>
-      <div>
-        <span>🛒</span>
-      </div>
+      <CartWidget />
     </nav>
   );
 };

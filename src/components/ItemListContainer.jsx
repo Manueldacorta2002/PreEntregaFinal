@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import products from "../data/products.json";
+import { db, collection, getDocs } from "../firebase"; // importa las funciones de Firebase
+import Item from "./Item";
 
-const ItemListContainer = ({ greeting }) => {
-  const [items, setItems] = useState([]);
+const ItemListContainer = () => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Simulación de fetch
+   
     const fetchProducts = async () => {
-      const response = products; 
-      setItems(response);
+      const querySnapshot = await getDocs(collection(db, "products"));
+      const productsList = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProducts(productsList);
     };
+
     fetchProducts();
   }, []);
 
   return (
     <div>
-      <h1>{greeting}</h1>
-      <ItemList items={items} />
+      <h2>Productos</h2>
+      {products.length === 0 ? (
+        <p>Cargando productos...</p>
+      ) : (
+        products.map((product) => <Item key={product.id} product={product} />)
+      )}
     </div>
   );
 };
